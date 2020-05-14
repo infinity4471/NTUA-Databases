@@ -1,0 +1,10 @@
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (9.99,'2019-03-01','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (0.99,'2019-03-02','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (2.99,'2019-03-03','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (3.99,'2019-03-04','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (5.99,'2019-03-05','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (1.99,'2019-03-06','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (4.99,'2019-03-07','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (18.99,'2019-03-08','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (17.99,'2019-03-09','2020-05-01');
+INSERT INTO Older_Prices (Price,Start_Date,End_Date) Values (8.99,'2019-03-10','2020-05-01');

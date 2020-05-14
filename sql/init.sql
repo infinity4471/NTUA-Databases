@@ -1,0 +1,14 @@
+source tables.sql
+source stores.sql
+source StorePhones.sql
+source products.sql
+source transaction.sql 
+source contains.sql
+source customers.sql
+source category.sql
+source belongs.sql
+source OlderPrices.sql
+source had.sql
+source offers.sql
+source performs.sql
+source provides.sql

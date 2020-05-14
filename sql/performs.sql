@@ -1,0 +1,10 @@
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-03-10 15:15:15','8888-8888-8888-8888');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-03-15 18:18:18','5555-5555-5555-5555');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-04-02 10:03:36','9999-9999-9999-9999');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-04-17 12:47:56','2222-2222-2222-2222');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-05-12 19:25:15','4444-4444-4444-4444');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-05-11 11:15:45','1111-1111-1111-1111');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-03-10 16:15:15','1111-1111-1111-1111');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-03-10 18:15:15','3333-3333-3333-3333');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-04-02 16:07:21','2222-2222-2222-2222');
+INSERT INTO Performs (Date_Time,Card_Number) Values ('2020-04-02 20:01:01','1111-1111-1111-1111');
