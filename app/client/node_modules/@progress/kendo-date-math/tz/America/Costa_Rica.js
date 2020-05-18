@@ -1,0 +1,110 @@
+const dm = require('@progress/kendo-date-math');
+dm.loadTimezone({
+  "zones": {
+    "America/Costa_Rica": [
+      [
+        336.2166666666667,
+        "-",
+        "LMT",
+        -2493072000000
+      ],
+      [
+        336.2166666666667,
+        "-",
+        "SJMT",
+        -1545091200000
+      ],
+      [
+        360,
+        "CR",
+        "C%sT",
+        null
+      ]
+    ]
+  },
+  "rules": {
+    "CR": [
+      [
+        1979,
+        1980,
+        "-",
+        "Feb",
+        "lastSun",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "D"
+      ],
+      [
+        1979,
+        1980,
+        "-",
+        "Jun",
+        "Sun>=1",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ],
+      [
+        1991,
+        1992,
+        "-",
+        "Jan",
+        "Sat>=15",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "D"
+      ],
+      [
+        1991,
+        "only",
+        "-",
+        "Jul",
+        "1",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ],
+      [
+        1992,
+        "only",
+        "-",
+        "Mar",
+        "15",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ]
+    ]
+  },
+  "titles": {
+    "America/Costa_Rica": {
+      "long": "Central America Standard Time",
+      "group": "(GMT-06:00) Central America"
+    }
+  }
+});

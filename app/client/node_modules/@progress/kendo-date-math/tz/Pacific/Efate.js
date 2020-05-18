@@ -1,0 +1,119 @@
+const dm = require('@progress/kendo-date-math');
+dm.loadTimezone({
+  "zones": {
+    "Pacific/Efate": [
+      [
+        -673.2666666666667,
+        "-",
+        "LMT",
+        -1829347200000
+      ],
+      [
+        -660,
+        "Vanuatu",
+        "+11/+12",
+        null
+      ]
+    ]
+  },
+  "rules": {
+    "Vanuatu": [
+      [
+        1983,
+        "only",
+        "-",
+        "Sep",
+        "25",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "-"
+      ],
+      [
+        1984,
+        1991,
+        "-",
+        "Mar",
+        "Sun>=23",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "-"
+      ],
+      [
+        1984,
+        "only",
+        "-",
+        "Oct",
+        "23",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "-"
+      ],
+      [
+        1985,
+        1991,
+        "-",
+        "Sep",
+        "Sun>=23",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "-"
+      ],
+      [
+        1992,
+        1993,
+        "-",
+        "Jan",
+        "Sun>=23",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "-"
+      ],
+      [
+        1992,
+        "only",
+        "-",
+        "Oct",
+        "Sun>=23",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "-"
+      ]
+    ]
+  },
+  "titles": {
+    "Pacific/Efate": {
+      "long": "Central Pacific Standard Time",
+      "group": "(GMT+11:00) Magadan, Solomon Is., New Caledonia"
+    }
+  }
+});

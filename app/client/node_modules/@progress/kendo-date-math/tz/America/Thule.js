@@ -1,0 +1,119 @@
+const dm = require('@progress/kendo-date-math');
+dm.loadTimezone({
+  "zones": {
+    "America/Thule": [
+      [
+        275.1333333333333,
+        "-",
+        "LMT",
+        -1686096000000
+      ],
+      [
+        240,
+        "Thule",
+        "A%sT",
+        null
+      ]
+    ]
+  },
+  "rules": {
+    "Thule": [
+      [
+        1991,
+        1992,
+        "-",
+        "Mar",
+        "lastSun",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        60,
+        "D"
+      ],
+      [
+        1991,
+        1992,
+        "-",
+        "Sep",
+        "lastSun",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ],
+      [
+        1993,
+        2006,
+        "-",
+        "Apr",
+        "Sun>=1",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        60,
+        "D"
+      ],
+      [
+        1993,
+        2006,
+        "-",
+        "Oct",
+        "lastSun",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ],
+      [
+        2007,
+        "max",
+        "-",
+        "Mar",
+        "Sun>=8",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        60,
+        "D"
+      ],
+      [
+        2007,
+        "max",
+        "-",
+        "Nov",
+        "Sun>=1",
+        [
+          2,
+          0,
+          0,
+          null
+        ],
+        0,
+        "S"
+      ]
+    ]
+  },
+  "titles": {
+    "America/Thule": {
+      "long": "Atlantic Standard Time",
+      "group": "(GMT-04:00) Atlantic Time (Canada)"
+    }
+  }
+});

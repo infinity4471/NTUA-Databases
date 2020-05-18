@@ -1,0 +1,119 @@
+const dm = require('@progress/kendo-date-math');
+dm.loadTimezone({
+  "zones": {
+    "America/Belize": [
+      [
+        352.8,
+        "-",
+        "LMT",
+        -1822521600000
+      ],
+      [
+        360,
+        "Belize",
+        "%s",
+        null
+      ]
+    ]
+  },
+  "rules": {
+    "Belize": [
+      [
+        1918,
+        1942,
+        "-",
+        "Oct",
+        "Sun>=2",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        30,
+        "-0530"
+      ],
+      [
+        1919,
+        1943,
+        "-",
+        "Feb",
+        "Sun>=9",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "CST"
+      ],
+      [
+        1973,
+        "only",
+        "-",
+        "Dec",
+        "5",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "CDT"
+      ],
+      [
+        1974,
+        "only",
+        "-",
+        "Feb",
+        "9",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "CST"
+      ],
+      [
+        1982,
+        "only",
+        "-",
+        "Dec",
+        "18",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        60,
+        "CDT"
+      ],
+      [
+        1983,
+        "only",
+        "-",
+        "Feb",
+        "12",
+        [
+          0,
+          0,
+          0,
+          null
+        ],
+        0,
+        "CST"
+      ]
+    ]
+  },
+  "titles": {
+    "America/Belize": {
+      "long": "Central America Standard Time",
+      "group": "(GMT-06:00) Central America"
+    }
+  }
+});

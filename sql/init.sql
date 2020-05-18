@@ -7,8 +7,8 @@ source contains.sql
 source customers.sql
 source category.sql
 source belongs.sql
-source OlderPrices.sql
 source had.sql
+source OlderPrices.sql
 source offers.sql
 source performs.sql
 source provides.sql
