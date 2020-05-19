@@ -2,19 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import {Socket} from './components/connector';
+import { createStore, applyMiddleware } from 'redux';
+import { rootReducer, socketMiddleware } from './reducers';
+import {updateCustomers} from './actions/customerActions';
 
-Socket.on( 'STORE_ADDRESSES', data => {
-	var addresses = []
-	for( var i = 0; i < data.length; i++ ) {
-		addresses.push( data[ i ][ "address" ] );
-	}
-	ReactDOM.render(
-		<App addresses={addresses}/>,
-		document.getElementById('root')
-	);
-});
+const url = "http://localhost:8000"
+
+const store = createStore( 
+	rootReducer,
+	applyMiddleware( socketMiddleware( url ) )
+);
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+  	</Provider>,
+	document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
