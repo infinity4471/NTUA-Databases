@@ -53,8 +53,11 @@ const fetchTables = () => {
 const fetchAndSendTables = socket => {
 	db.query('select Name from Customer', ( error, result ) => {
 		customers = keyFromDict( result, 'Name' );
-		console.log( customers )
 		socket.emit('CUSTOMER_NAMES', customers );
+	});
+	db.query('select * from Transaction', ( error, result ) => {
+		transaction_data = result;
+		socket.emit('ALL_TRANSACTIONS', transaction_data );
 	});
 	db.query('select address from Stores', ( error, result ) => {
 		addresses = keyFromDict( result, 'address' );
@@ -72,7 +75,6 @@ io.on('connection', (socket) => {
 		console.log( myquery )
 		db.query( myquery, ( error, result ) => {
 			customer_data = result;
-			console.log( customer_data )
 			socket.emit('CUSTOMER_DATA', customer_data );
 		});
 		select_customer = true;

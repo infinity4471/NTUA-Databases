@@ -23,4 +23,15 @@ function ClientTable({columnData}) {
 	);
 }
 
-export {ClientTable}; 
+function ProductTable({columnData}) {
+	return (
+		<div className="Grid">
+		<Grid data={columnData}>
+		<Column field="Total_amount" title="Amount" />
+		<Column field="Date_Time" title="Date/Time" />
+		<Column field="Payment_method" title="Payment Method" />
+		</Grid>
+		</div>
+	);
+}
+export {ClientTable, ProductTable}; 
