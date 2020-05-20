@@ -24,6 +24,12 @@ function ClientTable({columnData}) {
 }
 
 function ProductTable({columnData}) {
+	/*if( !columnData.length ) {
+		columnData = { 'Total_amount': undefined,
+			       'Date_Time': undefined,
+			       'Payment_method': undefined
+		}
+	}*/
 	return (
 		<div className="Grid">
 		<Grid data={columnData}>

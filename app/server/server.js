@@ -57,7 +57,7 @@ const fetchAndSendTables = socket => {
 	});
 	db.query('select * from Transaction', ( error, result ) => {
 		transaction_data = result;
-		socket.emit('ALL_TRANSACTIONS', transaction_data );
+		socket.emit('TRANSACTION_DATA', transaction_data );
 	});
 	db.query('select address from Stores', ( error, result ) => {
 		addresses = keyFromDict( result, 'address' );
@@ -69,14 +69,41 @@ const fetchAndSendTables = socket => {
 io.on('connection', (socket) => {
 	fetchAndSendTables(socket);
 	socket.on('SELECT_CUSTOMER', (name) => {
-		console.log("Selecting customer:");
-		console.log(name);
 		let myquery = "select * from Customer where Name = '" + name + "'";
-		console.log( myquery )
 		db.query( myquery, ( error, result ) => {
 			customer_data = result;
 			socket.emit('CUSTOMER_DATA', customer_data );
 		});
-		select_customer = true;
+	});
+	socket.on('FETCH_TRANSACTIONS', data => {
+		let myquery = "select * from Transaction";
+		var newDict = {}
+		var keyList = Object.keys( data )
+		for( var i = 0; i < keyList.length; i++ ) {
+			var curKey = keyList[ i ]
+			if( data[ curKey ] == undefined ) continue;
+			newDict[ curKey ] = data[ curKey ]
+		}
+		keyList = Object.keys( newDict )
+		if( keyList.length ) myquery += " where";
+		for( var i = 0; i < keyList.length; i++ ) {
+			var curKey = keyList[ i ]
+			myquery += " ";
+			if( curKey == 'Date_Time' ) {
+				myquery += "Date(" + curKey + ") = ";
+			} else {
+				myquery += curKey + " = ";
+			}
+			if( !Number.isInteger( newDict[ curKey ] ) ) {
+				myquery += "'" + newDict[ curKey ] + "'"
+			} else {
+				myquery += newDict[ curKey ]
+			}
+			if( i != keyList.length - 1 ) myquery += " and";
+		}
+		db.query( myquery, ( error, result ) => {
+			transaction_data = result;
+			socket.emit('TRANSACTION_DATA', transaction_data );
+		});
 	});
 });

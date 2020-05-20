@@ -1,10 +1,10 @@
 import React from 'react';
-import {StoreSelector, ClientSelector} from './MenuSelector';
+import {TransactionSelector, ClientSelector} from './MenuSelector';
 
 const App = () => {
 	return (
 		<div id="App">
-		<StoreSelector/>
+		<TransactionSelector/>
 		<ClientSelector/>
 		</div>
 	);
