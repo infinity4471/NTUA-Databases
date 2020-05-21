@@ -72,6 +72,7 @@ io.on('connection', (socket) => {
 		let myquery = "select * from Customer where Name = '" + name + "'";
 		db.query( myquery, ( error, result ) => {
 			customer_data = result;
+			console.log( customer_data )
 			socket.emit('CUSTOMER_DATA', customer_data );
 		});
 	});
@@ -104,6 +105,13 @@ io.on('connection', (socket) => {
 		db.query( myquery, ( error, result ) => {
 			transaction_data = result;
 			socket.emit('TRANSACTION_DATA', transaction_data );
+		});
+	});
+	socket.on('FETCH_CUSTOMER_TRANSACTIONS', card_number => {	
+		let myquery = "select Total_amount, Transaction.Date_Time, Payment_method from Transaction inner join Performs on Performs.Card_Number = '" + card_number + "' and Transaction.Date_Time = Performs.Date_Time";	
+		db.query( myquery, ( error, result ) => {
+			customer_transaction_data = result
+			socket.emit('CUSTOMER_TRANSACTIONS', customer_transaction_data )
 		});
 	});
 });

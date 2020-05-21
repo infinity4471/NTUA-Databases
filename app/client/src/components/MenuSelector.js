@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComboBox } from '@progress/kendo-react-dropdowns';
-import {ClientTable, ProductTable} from './Grids';
+import {TransactionTable} from './Tables';
 import io from 'socket.io-client';
 
 import DatePicker from 'react-datepicker';
@@ -70,7 +70,7 @@ const TransactionSelector = () => {
 		<ComboBox data={state.names} onChange={handleName}/>
 		<ComboBox data={state.possible_payment_methods} onChange={handlePayment}/>
 		<DatePicker selected={state.date} onChange={handleDate}/>
-		<ProductTable columnData={state.transaction_data}/>
+		<TransactionTable data={state.transaction_data}/>
 		</div>
 	);
 }
@@ -79,12 +79,12 @@ const ClientSelector = () => {
 	const [state, setState] = React.useState({
 		item: undefined, 
 		names: [], 
+		customer_transactions: [],
 		customer_data: [],
-		socket: io( url ),
-		grid: <ClientTable/>,
-		comboBox: <ComboBox/>
+		socket: io( url )
 	});
 	const handleName = (event) => {
+		state.item = event.target.value
 		setState({ ...state, item: event.target.value })	
 		state.socket.emit( 'SELECT_CUSTOMER', event.target.value )
 	}
@@ -92,15 +92,20 @@ const ClientSelector = () => {
 		setState({...state, names: data})
 	});
 	state.socket.on('CUSTOMER_DATA', data => {
-		console.log( state.item )
+		state.customer_data = Object.values( data )[ 0 ]
+		setState({ ...state, customer_data: Object.values( data )[ 0 ] })
+		state.socket.emit( 'FETCH_CUSTOMER_TRANSACTIONS', state.customer_data[ 'Card_Number' ] )
+	});
+	state.socket.on('CUSTOMER_TRANSACTIONS', data => {
+		state.customer_transactions = data
 		console.log( data )
-		setState({...state, customer_data: data})	
+		setState({ ...state, customer_transactions: data })
 	});
 	return (
 		<div className="Selector">
 		<h1> Επιλογή Πελάτη </h1>
 		<ComboBox data={state.names} onChange={handleName}/>
-		<ClientTable columnData={state.customer_data}/>
+		<TransactionTable data={state.customer_transactions}/>
 		</div>
 	);
 }

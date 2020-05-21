@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-core": "^2.6.3",
+    "@devexpress/dx-react-core": "^2.6.3",
+    "@devexpress/dx-react-grid": "^2.6.3",
+    "@devexpress/dx-react-grid-material-ui": "^2.6.3",
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
     "@progress/kendo-data-query": "^1.5.3",
     "@progress/kendo-drawing": "^1.7.0",
     "@progress/kendo-react-buttons": "^3.14.0",
@@ -25,7 +31,8 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "typescript": "^3.9.3"
   },
   "scripts": {
     "start": "react-scripts start",
