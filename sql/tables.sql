@@ -118,25 +118,5 @@ CREATE TABLE StorePhones (
     PRIMARY KEY (Store_Id,Phone_Number)
 );
 
-/*Products stuff*/
-/*Gotta add more*/
-/*Belongs stuff*/
-/*Provides Stuff*/
-/*Offers stuff*/
-/*Do older prices*/
-/*Customer Stuff*/
-/*Transaction stuff*/
-/*add more stuff*/
-/*fix total price to match bought products*/
-
-/*Contains stuff*/
-
-/*Performs stuff*/
-
-/*Older Prices stuff*/
-
-/*Had stuff*/
-
-/*Age(ok) and Total Pieces(not ok)*/
 SELECT cont.Pieces as Total_Pieces FROM (SELECT Pieces,Date_Time FROM Contains) cont,(SELECT Date_Time FROM Transaction) trans WHERE cont.Date_Time = trans.Date_Time;
 SELECT *, YEAR(CURDATE()) - YEAR(Date_Of_Birth) AS Age FROM Customer;

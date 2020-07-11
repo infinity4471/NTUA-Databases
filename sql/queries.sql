@@ -24,11 +24,24 @@ select Customer.Card_Number,COUNT(*) as Number_Of_Transactions from ((Customer i
 /*customer how many stores*/
 select count(Stores.Store_Id) as Number_Of_Stores from ((((((Customer inner join Performs on Customer.Card_Number = Performs.Card_Number and Customer.Card_Number = '1111-1111-1111-1111') inner join Transaction on Performs.Date_Time = Transaction.Date_Time) inner join Contains on Contains.Date_Time = Transaction.Date_Time ) inner join Products on Contains.Barcode = Products.Barcode) inner join Offers on Offers.Barcode = Products.Barcode) inner join Stores on Stores.Store_Id = Offers.Store_Id);
 /*customer what stores*/
-select Stores.Store_Id,Stores.Address from ((((((Customer inner join Performs on Customer.Card_Number = Performs.Card_Number and Customer.Card_Number = '1111-1111-1111-1111') inner join Transaction on Performs.Date_Time = Transaction.Date_Time) inner join Contains on Contains.Date_Time = Transaction.Date_Time ) inner join Products on Contains.Barcode = Products.Barcode) inner join Offers on Offers.Barcode = Products.Barcode) inner join Stores on Stores.Store_Id = Offers.Store_Id);
+select distinct Stores.Store_Id,Stores.Address from ((((((Customer inner join Performs on Customer.Card_Number = Performs.Card_Number and Customer.Card_Number = '1111-1111-1111-1111') inner join Transaction on Performs.Date_Time = Transaction.Date_Time) inner join Contains on Contains.Date_Time = Transaction.Date_Time ) inner join Products on Contains.Barcode = Products.Barcode) inner join Offers on Offers.Barcode = Products.Barcode) inner join Stores on Stores.Store_Id = Offers.Store_Id);
 
-/*customer diagram with hours*/
-/*customer mean of transactions per week*/
-/*customer mean of transactions per month*/
+/*INSERT DELETE UPDATE*/
+/*INSERT*/
+/*insert product*/
+INSERT INTO Products (Name,Price,Brand_Name,Barcode,First_Transaction) Values ('sample',1.11,'sample','111111','1111-11-11 11:11:11');
+/*insert store*/
+INSERT INTO Stores (Store_Id,Store_Size,Street,Operating_Hours,Street_Number,Postal_Code,City) Values (11,100000,'sample','11:00-11:00','2','11111','California');
+/*insert customer*/
+INSERT INTO Customer (Name,Date_Of_Birth,Points,Family_Members,Card_Number,Phone_Number,Street,Street_Number,Postal_Code,City,Pet) Values ('popo','1111-11-11',1,1,'1111-1111-1111-1111','1111111111','denkserw','11','den',0);
+/*DELETE*/
+/*delete product*/
+DELETE FROM Products WHERE Barcode = '1000000';
+/*delete store*/
+DELETE FROM Stores WHERE Store_Id = 1;
+/*delete customer*/
+DELETE FROM Customer WHERE Card_Number = '1111-1111-1111-1111';
+/*UPDATE ta kanei o potis*/
 
 
 /*view for customer profiles*/
