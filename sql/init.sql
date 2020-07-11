@@ -12,3 +12,4 @@ source had.sql
 source offers.sql
 source performs.sql
 source provides.sql
+source triggers.sql

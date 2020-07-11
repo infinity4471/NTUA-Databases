@@ -14,7 +14,7 @@ CREATE TABLE Products (
     Price DOUBLE NOT NULL,
     Name varchar( 255 ) NOT NULL,
     Brand_Name varchar( 255 ) NOT NULL,
-    First_Transaction DATETIME NOT NULL,
+    First_Transaction DATETIME NULL,
     PRIMARY KEY (Barcode)
 ) ENGINE=INNODB;
 
@@ -33,8 +33,8 @@ CREATE TABLE Customer (
     Card_Number varchar( 19 ) NOT NULL,
     Phone_Number varchar( 10 ) NOT NULL,
     Street varchar( 255 ) NOT NULL,
-    Street_Number varchar( 2 ) NOT NULL,
-    Postal_Code varchar( 5 ) NOT NULL,
+    Street_Number INT NOT NULL,
+    Postal_Code INT NOT NULL,
     City varchar( 255 ) NOT NULL,
     Pet boolean NOT NULL,
     Address varchar( 255 ) AS ( CONCAT( Street, " ", Street_Number, ", ", Postal_Code, " ", City ) ),
@@ -53,8 +53,8 @@ CREATE TABLE Stores (
     Store_Size INT NOT NULL,
     Street varchar( 255 ) NOT NULL,
     Operating_Hours varchar( 255 ) NOT NULL,
-    Street_Number varchar( 255 ) NOT NULL,
-    Postal_Code varchar( 5 ) NOT NULL,
+    Street_Number INT NOT NULL,
+    Postal_Code INT NOT NULL,
     City varchar( 255 ) NOT NULL,
     Address varchar( 255 ) AS ( CONCAT( Street, " ", Street_Number, ", ", Postal_Code, " ", City ) ),
     PRIMARY KEY( Store_Id )
