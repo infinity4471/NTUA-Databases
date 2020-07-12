@@ -1,4 +1,5 @@
 source tables.sql
+source views.sql
 source index.sql
 source stores.sql
 source StorePhones.sql
