@@ -1,3 +1,4 @@
 import {TransactionTable} from './TransactionTable';
+import {ProductTable} from './ProductTable';
 
-export {TransactionTable};
+export {ProductTable, TransactionTable};

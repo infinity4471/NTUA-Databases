@@ -1,0 +1,19 @@
+Supported Queries:
+
+- INSERT [Table] [json.txt]
+- DELETE [Table] [key]
+
+- CUSTOMER [name]
+- CUSTOMER_STORES [card_number]
+- CUSTOMER_TRANSACTIONS [card_number]
+- CUSTOMER_TOP_10_PRODUCTS [card_number]
+- TOP_ALLEY_SHELF [store_id]
+- TOP_HOURS
+- AVERAGE_OVER_MONTH [card_number]
+- CUSTOMER_VISITS_PER_HOUR [card_number, store_address]
+- NUMBER_OF_STORES_PER_CUSTOMER [card_number]
+- OLDER_PRICES [barcode]
+- TICKET_PERCENTAGE [category_id]
+- COUNT_TRANSACTIONS_PER_HOUR
+- TOP_PRODUCT_PAIRS
+- TOP_CUSTOMERS_PER_STORE [store_address]

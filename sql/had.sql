@@ -26,4 +26,3 @@ INSERT INTO Had (Start_Date,Barcode) Values ('2019-01-09','301000');
 INSERT INTO Had (Start_Date,Barcode) Values ('2018-01-08','301000');
 INSERT INTO Had (Start_Date,Barcode) Values ('2019-01-08','301001');
 INSERT INTO Had (Start_Date,Barcode) Values ('2018-01-09','301002');
-

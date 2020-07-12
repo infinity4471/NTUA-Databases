@@ -11,7 +11,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import {TablePaginationActions} from './TablePagination';
 
 const TransactionTable = (data) => {
-	const rows = Object.values( data )[ 0 ]
+	let rows = Object.values( data )[ 0 ];
+	console.log( rows );
 	const [rowsPerPage, setRowsPerPage] = React.useState(5);
 	const [page, setPage] = React.useState(0);
 	const handleChangePage = (event, newPage) => {
@@ -27,7 +28,7 @@ const TransactionTable = (data) => {
 		setPage(0);
 	};
 
-	const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+	let emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 	return (
 		<TableContainer component={Paper} style={{width: 500}}>
 
