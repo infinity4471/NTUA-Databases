@@ -1,7 +1,9 @@
 Supported Queries:
 
 - INSERT [Table] [json.txt]
-- DELETE [Table] [key]
+- DELETE_CUSTOMER [key]
+- DELETE_PRODUCTS [key]
+- DELETE_STORES [key]
 
 - CUSTOMER [name]
 - CUSTOMER_STORES [card_number]

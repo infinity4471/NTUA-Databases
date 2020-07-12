@@ -31,5 +31,9 @@ exports.fetchCustomerVisitsPerHour = ( card_number, address ) => (
 );
 
 exports.deleteCustomer = ( key ) => (
-	"DELETE FROM Stores WHERE Card_Number = '" + key + "';" 
+	"DELETE FROM Customer WHERE Card_Number = '" + key + "';" 
+);
+
+exports.fetchTop10Products = ( card_number ) => (
+	"SELECT Products.Barcode, Products.Name, Products.Brand_Name, COUNT( * ) as Times_Purchased FROM Customer JOIN Performs ON Customer.Card_Number = Performs.Card_Number JOIN Transaction ON Transaction.Date_Time = Performs.Date_Time JOIN Contains ON Contains.Date_Time = Transaction.Date_Time JOIN Products ON Products.Barcode = Contains.Barcode WHERE Customer.Card_Number = '" + card_number + "' GROUP BY Products.Barcode ORDER BY COUNT( * ) DESC;"
 );

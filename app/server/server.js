@@ -83,7 +83,6 @@ io.on('connection', (socket) => {
 	socket.on('FETCH_TRANSACTIONS', data => {
 		let myquery = "select Transaction.Total_amount, Transaction.Date_Time, Transaction.Payment_method from Transaction";
 		let cnt = 0;
-		console.log( data );
 		if( data[ 'store' ] != undefined ) {
 			myquery += " JOIN Contains ON Transaction.Date_Time = Contains.Date_Time JOIN Products ON Products.Barcode = Contains.Barcode JOIN Offers ON Offers.Barcode = Products.Barcode JOIN Stores ON Stores.Store_id = Offers.Store_id WHERE Stores.Address = '" + data[ 'store' ] + "' ";
 			cnt++;
@@ -101,9 +100,7 @@ io.on('connection', (socket) => {
 			cnt++;
 		}
 		myquery += ";";
-		console.log( myquery );
 		db.query( myquery, ( error, result ) => {
-			console.log( result );
 			socket.emit("TRANSACTION_DATA", result );
 		});
 	});
@@ -113,7 +110,6 @@ io.on('connection', (socket) => {
 		});
 	});
 	socket.on('FETCH_CUSTOMER_TRANSACTIONS', card_number => {
-		console.log( customerQueries.fetchTransactions( card_number ) );
 		db.query( customerQueries.fetchTransactions( card_number ), ( error, result ) => {
 			socket.emit('CUSTOMER_TRANSACTIONS', result )
 		});

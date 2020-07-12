@@ -7,7 +7,7 @@ exports.insertOrUpdate = ( data ) => (
 );
 
 exports.deleteProduct = ( key ) => (
-	"DELETE FROM Stores WHERE Barcode = '" + key + "';" 
+	"DELETE FROM Products WHERE Barcode = '" + key + "';" 
 );
 
 exports.fetchTicketPercentage = ( category_id ) => (

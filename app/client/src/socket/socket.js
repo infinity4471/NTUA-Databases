@@ -8,9 +8,8 @@ const signal = args[ 0 ];
 if( signal == 'INSERT' ) {
 	const table = args[ 1 ];
 	const filename = args[ 2 ];
+	console.log( filename );
 	const data = require('./' + filename );
-	console.log( table )
-	console.log( data )
 	socket.emit( "FETCH_INSERT_OR_UPDATE_" + table.toUpperCase(), data );
 	socket.on( "INSERT_OR_UPDATE_" + table.toUpperCase(), data => {
 		console.log( data );
