@@ -98,7 +98,7 @@ CREATE TABLE Contains (
     Barcode varchar( 6 ) NOT NULL,
     Date_Time DATETIME NOT NULL,
     Pieces INT NOT NULL,
-    PRIMARY KEY (Date_Time,Barcode,Pieces),
+    PRIMARY KEY (Date_Time,Barcode),
     FOREIGN KEY (Barcode) REFERENCES Products(Barcode) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (Date_Time) REFERENCES Transaction(Date_Time) ON UPDATE CASCADE ON DELETE CASCADE 
 );
@@ -113,7 +113,7 @@ CREATE TABLE Performs (
 
 CREATE TABLE StorePhones (
     Store_Id INT NOT NULL,
-    Phone_Number BIGINT NOT NULL,
+    Phone_Number varchar(10) NOT NULL,
     FOREIGN KEY (Store_Id) REFERENCES Stores(Store_Id) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY (Store_Id,Phone_Number)
 );
