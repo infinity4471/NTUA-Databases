@@ -134,6 +134,11 @@ io.on('connection', (socket) => {
 			socket.emit('AVERAGE_OVER_MONTH', result )
 		});
 	});
+	socket.on("FETCH_AVERAGE_OVER_WEEK", card_number => {
+		db.query( customerQueries.fetchAverageOverWeek( card_number ), ( error, result ) => {
+			socket.emit('AVERAGE_OVER_WEEK', result );
+		});
+	});
 	socket.on("FETCH_NUMBER_OF_STORES_PER_CUSTOMER", card_number => {
 		db.query( customerQueries.fetchNumberOfStoresPerCustomer( card_number ), ( error, result ) => {
 			socket.emit('NUMBER_OF_STORES_PER_CUSTOMER', result )

@@ -18,6 +18,10 @@ exports.fetchAverageOverMonth = (cardNumber) => (
 	"SELECT ROUND( AVG( Transaction.Total_amount ), 2 ), MONTH( Transaction.Date_Time ) from Transaction INNER JOIN Performs on Transaction.Date_Time = Performs.Date_Time INNER JOIN Customer ON Customer.Card_Number = Performs.Card_Number WHERE Customer.Card_Number = '" + cardNumber + "' group by MONTH( Transaction.Date_Time );"
 );
 
+exports.fetchAverageOverWeek = (cardNumber) => (
+	"SELECT ROUND( AVG( Transaction.Total_amount ), 2 ), WEEK( Transaction.Date_Time ) from Transaction INNER JOIN Performs on Transaction.Date_Time = Performs.Date_Time INNER JOIN Customer ON Customer.Card_Number = Performs.Card_Number WHERE Customer.Card_Number = '" + cardNumber + "' group by WEEK( Transaction.Date_Time );"
+);
+
 exports.fetchNumberOfStoresPerCustomer = (cardNumber) => (
 	"select count(*) as Number_Of_Stores, Stores.Store_Id, Stores.Address from Customer inner join Performs on Customer.Card_Number = Performs.Card_Number and Customer.Card_Number = '" + cardNumber + "' inner join Transaction on Performs.Date_Time = Transaction.Date_Time inner join Contains on Contains.Date_Time = Transaction.Date_Time inner join Products on Contains.Barcode = Products.Barcode inner join Offers on Offers.Barcode = Products.Barcode inner join Stores on Stores.Store_Id = Offers.Store_Id group by Stores.Store_Id;"
 );

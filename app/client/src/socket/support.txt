@@ -12,6 +12,7 @@ Supported Queries:
 - TOP_ALLEY_SHELF [store_id]
 - TOP_HOURS
 - AVERAGE_OVER_MONTH [card_number]
+- AVERAGE_OVER_WEEK [card_number]
 - CUSTOMER_VISITS_PER_HOUR [card_number, store_address]
 - NUMBER_OF_STORES_PER_CUSTOMER [card_number]
 - OLDER_PRICES [barcode]
