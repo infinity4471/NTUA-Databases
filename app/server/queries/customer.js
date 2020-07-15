@@ -41,3 +41,6 @@ exports.deleteCustomer = ( key ) => (
 exports.fetchTop10Products = ( card_number ) => (
 	"SELECT Products.Barcode, Products.Name, Products.Brand_Name, COUNT( * ) as Times_Purchased FROM Customer JOIN Performs ON Customer.Card_Number = Performs.Card_Number JOIN Transaction ON Transaction.Date_Time = Performs.Date_Time JOIN Contains ON Contains.Date_Time = Transaction.Date_Time JOIN Products ON Products.Barcode = Contains.Barcode WHERE Customer.Card_Number = '" + card_number + "' GROUP BY Products.Barcode ORDER BY COUNT( * ) DESC;"
 );
+exports.fetchPetPeopleBuyingPetProducts = () => (
+	"SELECT Customer.Name,Customer.Card_Number,Customer.Pet from Customer inner join Performs on Performs.Card_Number = Customer.Card_Number inner join Transaction on Performs.Date_Time = Transaction.Date_Time inner join Contains on Contains.Date_Time = Transaction.Date_Time inner join Products on Products.Barcode = Contains.Barcode inner join Belongs on Belongs.Barcode = Products.Barcode inner join Category on Category.Category_Id = Belongs.Category_Id where Category.Category_Id = 6 and Customer.Pet = 1;"
+);

@@ -204,4 +204,9 @@ io.on('connection', (socket) => {
 			socket.emit("CUSTOMER_VISITS_PER_HOUR", result );
 		});
 	});
+	socket.on("FETCH_PET_PEOPLE_BUYING_PET_PRODUCTS", () => {
+                db.query( customerQueries.fetchPetPeopleBuyingPetProducts(), ( error, result ) => {
+                        socket.emit("PET_PEOPLE_BUYING_PET_PRODUCTS", result );
+                });
+        });
 });
